@@ -17,10 +17,10 @@ class ViewController: UIViewController {
   override func loadView() {
     let pdfView = PDFView(frame: .zero)
 
+    pdfView.document = PDFDocument(url: Bundle.main.url(forResource: "sample", withExtension: "pdf")!)!
+
     // This will cause a crash on iOS 12.2
     pdfView.usePageViewController(true, withViewOptions: [:])
-
-    pdfView.document = PDFDocument(url: Bundle.main.url(forResource: "sample", withExtension: "pdf")!)!
 
     view = pdfView
   }
